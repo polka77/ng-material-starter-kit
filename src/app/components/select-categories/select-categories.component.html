@@ -1,18 +1,15 @@
-<mat-card
-  ><mat-card-title>Crypto chips</mat-card-title>
+<mat-card>
+  <mat-card-title>Select category</mat-card-title>
   <mat-card-content>
-    <mat-chip-list
-      aria-label="Fish selection"
-      *ngIf="list$ | async as list; else loading"
-    >
+    <mat-selection-list role="list" *ngIf="list$ | async as list; else loading">
       <ng-container *ngIf="list.length > 0; else empty">
-        <mat-chip *ngFor="let item of list">
-          {{ item.symbol }}
-        </mat-chip>
+        <mat-list-option role="listitem" *ngFor="let item of list"
+          >{{ item }}
+        </mat-list-option>
       </ng-container>
-    </mat-chip-list>
-
+    </mat-selection-list>
     <ng-template #empty> Oops! There is no data! </ng-template>
+
     <ng-template #loading>
       <mat-progress-spinner
         [color]="'primary'"
@@ -20,5 +17,6 @@
         [value]="50"
       >
       </mat-progress-spinner>
-    </ng-template> </mat-card-content
-></mat-card>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
