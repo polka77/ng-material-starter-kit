@@ -3,9 +3,10 @@
   ><mat-card-content>
     <mat-list role="list" *ngIf="list$ | async as list; else loading">
       <ng-container *ngIf="list.length > 0; else empty">
-        <mat-list-item role="listitem" *ngFor="let item of list">{{
-          item.title
-        }}</mat-list-item>
+        <mat-list-item role="listitem" *ngFor="let item of list">
+          <img src="{{ item.image }}" style="height: 40px" />
+          {{ item.title }} for {{ item.price }}
+        </mat-list-item>
       </ng-container>
     </mat-list>
     <ng-template #empty> Oops! There is no data! </ng-template>

@@ -1,9 +1,10 @@
+import { isNgTemplate } from '@angular/compiler';
 import {
   ChangeDetectionStrategy,
   Component,
   ViewEncapsulation,
 } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
 import { ProductModel } from '../../models/product.model';
 import { ProductsService } from '../../services/products.service';
 
